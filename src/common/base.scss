@@ -1,5 +1,12 @@
 .flex-center {
-  display: flex;
   justify-content: center;
+  @extend .flex-base;
+}
+.flex-base {
+  display: flex;
   align-items: center;
+}
+.flex-between {
+  @extend .flex-base;
+  justify-content: space-between;
 }
