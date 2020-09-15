@@ -18,10 +18,9 @@ export default {
 
 <style lang="scss" scoped>
 .banner {
-  background: url('https://rmt.dogedoge.com/fetch/fluid/storage/bg/73twhs.png?w=1920&fmt=webp')
+  background: url('https://rmt.dogedoge.com/fetch/fluid/storage/bg/n7a9bv.png?w=1920&fmt=webp')
     center / cover no-repeat;
-  transform: translate3d(0px, 0px, 0px);
-  height: 50vh;
+  height: 100vh;
   margin-top: -64px;
   .mask {
     position: absolute;

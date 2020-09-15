@@ -32,9 +32,15 @@ const router = new Router({
         },
         {
           // 关于我
-          path: '/aboutMe',
+          path: '/about-me',
           name: 'aboutMe-context',
-          component: () => import('../views/aboutMe.vue')
+          component: () => import('../views/about-me.vue')
+        },
+        {
+          // 文章详情
+          path: '/article-detail',
+          name: 'aboutMe-context',
+          component: () => import('../views/article-details.vue')
         }
       ]
     }]
