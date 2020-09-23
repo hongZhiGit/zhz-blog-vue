@@ -37,17 +37,14 @@
         ></v-pagination>
       </div>
     </div>
-    <my-footer></my-footer>
   </div>
 </template>
 
 <script>
 import bannerBack from "../components/banner-back";
-import myFooter from "../components/my-footer";
 export default {
   components: {
-    bannerBack,
-    myFooter
+    bannerBack
   },
   data() {
     return {
@@ -58,6 +55,8 @@ export default {
     };
   },
   created() {
+    window.scrollTo(0, 0);
+    console.log(1);
     this.pageInit();
   },
   mounted() {

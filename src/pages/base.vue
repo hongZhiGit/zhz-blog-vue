@@ -5,28 +5,27 @@
       flat
       :height="titleBoxDark ? '54px': '64px'"
     >
-      <span class="title-text">Zhz's Blog</span>
+      <span class="title-text" @click="goHome()">Zhz's Blog</span>
       <v-bottom-navigation
         class="bottom-navigation"
         :value="activeBtn"
-        @change="tabChange"
         grow
         horizontal
         :active-class="'sel-active'"
       >
-        <v-btn>
+        <v-btn @click="tabClick(0)">
           <span>首页</span>
           <v-icon>mdi-home</v-icon>
         </v-btn>
-        <v-btn>
+        <v-btn @click="tabClick(1)">
           <span>目录</span>
           <v-icon>mdi-fan</v-icon>
         </v-btn>
-        <v-btn>
+        <v-btn @click="tabClick(2)">
           <span>分类</span>
           <v-icon>mdi-fan</v-icon>
         </v-btn>
-        <v-btn>
+        <v-btn @click="tabClick(3)">
           <span>关于我</span>
           <v-icon>mdi-account-details</v-icon>
         </v-btn>
@@ -38,12 +37,17 @@
     <v-main>
       <router-view></router-view>
     </v-main>
+    <my-footer></my-footer>
   </div>
 </template>
 
 <script>
+import myFooter from "../components/my-footer";
 import Vue from 'vue';
 export default {
+  components: {
+    myFooter
+  },
   data() {
     return {
       activeBtn: 0,
@@ -62,7 +66,9 @@ export default {
     window.addEventListener('scroll', this.titleScroll, true);  // 监听（绑定）滚轮滚动事件
   },
   methods: {
-    tabChange(value) {
+    tabClick(value) {
+      window.scrollTo(0, 0);
+      this.$store.commit('mainStyle', '');
       this.$router.push(this.tabRouterArr[value]);
     },
     titleScroll() {
@@ -75,6 +81,9 @@ export default {
     },
     destroyed() {
       window.removeEventListener('scroll', this.titleScroll);   //  离开页面清除（移除）滚轮滚动事件
+    },
+    goHome() {
+      this.$router.push('/home');
     }
   }
 };
@@ -98,6 +107,7 @@ export default {
     font-size: 20px;
     font-weight: 600;
     color: #ffffff;
+    cursor: pointer;
   }
   .bottom-navigation {
     width: 50%;

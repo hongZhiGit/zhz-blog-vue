@@ -1,38 +1,51 @@
 <template>
   <div>
-    <div class="banner">
-      <div class="mask"></div>
-      <div class="context">111111</div>
-    </div>
+    <!-- 首页背景 -->
+    <banner-back
+      ref="bannerBackRef"
+      :backSrc="backSrc"
+      :height="'60vh'"
+      style="margin-bottom: -50px"
+    ></banner-back>
+    <div style="height: 1px"></div>
+    <div class="main-box" :style="$store.getters.mainStyle"></div>
   </div>
 </template>
 
 <script>
+import bannerBack from "../components/banner-back";
 export default {
+  components: {
+    bannerBack
+  },
   data() {
     return {
+      backSrc: `https://rmt.dogedoge.com/fetch/fluid/storage/bg/73twhs.png?w=1920&fmt=webp`,
+      amount: 34,
+      year: 2019,
+      dataArr: [
+        { id: '1', year: 2019, title: '目录一 一一一一一一一一一一一一一1', createdAt: '09-15' },
+        { id: '1', year: 2019, title: '目录一 一一一一一一一一一一一一一2', createdAt: '08-15' },
+        { id: '1', year: 2019, title: '目录一 一一一一一一一一一一一一一3', createdAt: '07-15' },
+        { id: '1', year: 2019, title: '目录一 一一一一一一一一一一一一一4', createdAt: '06-15' },
+        { id: '1', year: 2019, title: '目录一 一一一一一一一一一一一一一5', createdAt: '05-15' },
+        { id: '1', year: 2019, title: '目录一 一一一一一一一一一一一一一5', createdAt: '05-15' },
+        { id: '1', year: 2019, title: '目录一 一一一一一一一一一一一一一5', createdAt: '05-15' },
+        { id: '1', year: 2019, title: '目录一 一一一一一一一一一一一一一5', createdAt: '05-15' },
+        { id: '1', year: 2019, title: '目录一 一一一一一一一一一一一一一5', createdAt: '05-15' },
+        { id: '1', year: 2019, title: '目录一 一一一一一一一一一一一一一5', createdAt: '05-15' }
+      ]
     };
   },
+  created() {
+  },
+  mounted() {
+    this.$refs.bannerBackRef.setFont(`分类`);
+  },
+  methods: {
+  }
 };
 </script>
 
 <style lang="scss" scoped>
-.banner {
-  background: url('https://rmt.dogedoge.com/fetch/fluid/storage/bg/73twhs.png?w=1920&fmt=webp')
-    center / cover no-repeat;
-  transform: translate3d(0px, 0px, 0px);
-  height: 50vh;
-  margin-top: -64px;
-  .mask {
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.3);
-  }
-  .context {
-    padding-top: 64px;
-    height: 100%;
-    width: 100%;
-  }
-}
 </style>
