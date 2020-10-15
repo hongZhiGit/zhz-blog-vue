@@ -1,6 +1,8 @@
 <template>
   <div class="footer">
-    <div class="record" @click.stop="goBeian" target="_blank">京ICP备 19049164号-1</div>
+    <div class="record" @click.stop="goBeian" target="_blank">
+      京ICP备 19049164号-1
+    </div>
   </div>
 </template>
 

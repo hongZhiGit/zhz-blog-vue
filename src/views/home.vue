@@ -7,25 +7,30 @@
       <div class="item" v-for="(item, index) in dataArr" :key="index">
         <v-img class="image" :src="item.img"></v-img>
         <div class="right-context">
-          <div class="title-name" @click="goDetail(item)">{{item.title}}</div>
-          <div class="context" @click="goDetail(item)">{{item.context}}</div>
+          <div class="title-name" @click="goDetail(item)">{{ item.title }}</div>
+          <div class="context" @click="goDetail(item)">{{ item.context }}</div>
           <div class="flex-base item-footer">
             <!-- 创建时间 -->
             <v-icon class="icon">mdi-calendar-month-outline</v-icon>
-            {{item.createdAt}}
+            {{ item.createdAt }}
             <!-- 标签 -->
             <span class="flex-base tag">
               <v-icon class="icon">mdi-tag-text-outline</v-icon>
-              <span class="tag-item" v-for="(tagItem, index) in item.tagArr" :key="index">
-                <span>{{tagItem.text}}</span>
+              <span
+                class="tag-item"
+                v-for="(tagItem, index) in item.tagArr"
+                :key="index"
+              >
+                <span>{{ tagItem.text }}</span>
               </span>
             </span>
             <!-- 文字数 -->
             <v-icon class="icon">mdi-text-box-outline</v-icon>
-            {{item.wordCount}}字
+            {{ item.wordCount }}字
           </div>
         </div>
       </div>
+      <div style="height: 100px"></div>
       <div class="flex-center pagination">
         <v-pagination
           v-model="page"
@@ -37,14 +42,18 @@
         ></v-pagination>
       </div>
     </div>
+    <my-footer></my-footer>
   </div>
 </template>
 
 <script>
 import bannerBack from "../components/banner-back";
+import myFooter from "../components/my-footer";
+
 export default {
   components: {
-    bannerBack
+    bannerBack,
+    myFooter
   },
   data() {
     return {
@@ -64,7 +73,7 @@ export default {
   methods: {
     pageInit() {
       this.$nextTick(() => {
-        this.$refs.bannerBackRef.setFont(`一款 Material Design 风格的 Hexo 主题`);
+        this.$refs.bannerBackRef.setFont(`这是一个火爆全球的blog`);
         this.dataArr = [
           {
             title: 'Flex 布局',
@@ -171,7 +180,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 567px) {
   .main {
     display: flex;
     flex-direction: column;
@@ -220,6 +229,4 @@ export default {
     }
   }
 }
-</style>
-<style>
 </style>

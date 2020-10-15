@@ -2,8 +2,14 @@
   <!-- 首页背景 -->
   <div
     class="banner"
-    :style="{'--height' : height, 'background': `url('${backSrc}') center / cover no-repeat`}"
+    :style="{
+      '--height': height,
+      background: `url('${backSrc}') center / cover no-repeat`,
+    }"
   >
+    <div class="down-icon">
+      <svg-icon class="icon-down" name="icon-arrow-bottom"></svg-icon>
+    </div>
     <div class="mask"></div>
     <div class="context">
       <printer-font ref="printerFontRef"></printer-font>
@@ -62,6 +68,30 @@ $varHeight: var(--height);
     // margin-top: 0vh - $varHeight;
     height: 100%;
     width: 100%;
+  }
+}
+.icon-down {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: absolute;
+  top: 90vh;
+  color: #fff;
+  font-size: 40px;
+  animation: downIcon 1.5s infinite;
+}
+@keyframes downIcon {
+  0% {
+    opacity: 0.9;
+    margin-top: 0;
+  }
+  50% {
+    opacity: 0.4;
+    margin-top: 20px;
+  }
+  100% {
+    opacity: 0.9;
+    margin-top: 0;
   }
 }
 </style>

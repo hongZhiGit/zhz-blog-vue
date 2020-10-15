@@ -3,7 +3,7 @@
     <v-app-bar
       :class="[titleBoxDark ? 'dark' : '', 'title-box']"
       flat
-      :height="titleBoxDark ? '54px': '64px'"
+      :height="titleBoxDark ? '54px' : '64px'"
     >
       <span class="title-text" @click="goHome()">Zhz's Blog</span>
       <v-bottom-navigation
@@ -37,17 +37,12 @@
     <v-main>
       <router-view></router-view>
     </v-main>
-    <my-footer></my-footer>
   </div>
 </template>
 
 <script>
-import myFooter from "../components/my-footer";
 import Vue from 'vue';
 export default {
-  components: {
-    myFooter
-  },
   data() {
     return {
       activeBtn: 0,

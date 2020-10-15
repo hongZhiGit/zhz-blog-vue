@@ -17,5 +17,16 @@ module.exports = {
         })
         .end();
     });
+  },
+  devServer: {
+    // 前端端口
+    port: 8183,
+    // 代理地址
+    proxy: {
+      '/api': {
+        target: 'http://10.144.120.143:8093/',
+        secure: false
+      }
+    }
   }
 };

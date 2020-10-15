@@ -1,7 +1,7 @@
 <template>
   <h2 class="printer">
-    {{title}}
-    <span :class="printerOut ? 'underline': ''">_</span>
+    {{ title }}
+    <span v-if="title" :class="printerOut ? 'underline' : ''">_</span>
   </h2>
 </template>
 
