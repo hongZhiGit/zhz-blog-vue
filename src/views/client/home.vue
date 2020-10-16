@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 首页背景 -->
-    <banner-back ref="bannerBackRef" :backSrc="backSrc"></banner-back>
+    <banner-back ref="bannerBackRef" :backSrc="backSrc" downArrow></banner-back>
     <!-- 内容 -->
     <div class="main-box" :style="$store.getters.mainStyle">
       <div class="item" v-for="(item, index) in dataArr" :key="index">
@@ -47,8 +47,8 @@
 </template>
 
 <script>
-import bannerBack from "../components/banner-back";
-import myFooter from "../components/my-footer";
+import bannerBack from "../../components/banner-back";
+import myFooter from "../../components/my-footer";
 
 export default {
   components: {

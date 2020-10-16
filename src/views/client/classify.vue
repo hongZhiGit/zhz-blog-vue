@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import bannerBack from "../components/banner-back";
+import bannerBack from "../../components/banner-back";
 export default {
   components: {
     bannerBack

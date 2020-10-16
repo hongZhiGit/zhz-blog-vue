@@ -1,13 +1,14 @@
 <template>
-  <!-- 首页背景 -->
+  <!-- 首页背景  , -->
   <div
     class="banner"
+    dark
     :style="{
       '--height': height,
       background: `url('${backSrc}') center / cover no-repeat`,
     }"
   >
-    <div class="down-icon">
+    <div class="down-icon" v-if="downArrow">
       <svg-icon class="icon-down" name="icon-arrow-bottom"></svg-icon>
     </div>
     <div class="mask"></div>
@@ -32,6 +33,10 @@ export default {
     backSrc: {
       type: String,
       default: 'https://rmt.dogedoge.com/fetch/fluid/storage/bg/vdysjx.png?w=1920&fmt=webp'
+    },
+    downArrow: {
+      type: Boolean,
+      default: false
     }
   },
   data() {

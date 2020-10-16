@@ -1,6 +1,10 @@
 <template>
   <div>
-    <banner-back ref="bannerBackRef" :backSrc="backSrc" :height="'60vh'"></banner-back>
+    <banner-back
+      ref="bannerBackRef"
+      :backSrc="backSrc"
+      :height="'60vh'"
+    ></banner-back>
     <div class="main-box context" :style="$store.getters.mainStyle">
       <!-- <div v-for="(item, index) in 100" :key="index">{{item}}</div> -->
       <div v-html="msg"></div>
@@ -9,7 +13,7 @@
 </template>
 
 <script>
-import bannerBack from "../components/banner-back";
+import bannerBack from "../../components/banner-back";
 
 export default {
   components: {

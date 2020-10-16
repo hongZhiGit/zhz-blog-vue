@@ -9,23 +9,23 @@
     ></banner-back>
     <div style="height: 1px"></div>
     <div class="main-box" :style="$store.getters.mainStyle">
-      <div class="col-10 amount">共计 {{amount}} 篇文章</div>
-      <div class="col-10">{{year}}</div>
+      <div class="col-10 amount">共计 {{ amount }} 篇文章</div>
+      <div class="col-10">{{ year }}</div>
       <div
         class="flex-between col-10"
         v-for="(item, index) in dataArr"
         :key="index"
         @click="goDetail(item)"
       >
-        <div class="title">{{item.title}}</div>
-        <div class="created-at">{{item.createdAt}}</div>
+        <div class="title">{{ item.title }}</div>
+        <div class="created-at">{{ item.createdAt }}</div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import bannerBack from "../components/banner-back";
+import bannerBack from "../../components/banner-back";
 export default {
   components: {
     bannerBack

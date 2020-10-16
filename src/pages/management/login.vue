@@ -1,29 +1,27 @@
 <template>
   <div class="lay-box">
-    <div class="login-box">
-      <form ref="form">
-        <div>系统登入</div>
-        <v-text-field
-          v-model="account"
-          label="账号"
-          required
-          :error-messages="accountErrors"
-          :error-count="2"
-          @input="$v.account.$touch()"
-          @blur="$v.account.$touch()"
-        ></v-text-field>
-        <v-text-field
-          v-model="password"
-          type="password"
-          label="密码"
-          required
-          :error-messages="passwordErrors"
-          @input="$v.password.$touch()"
-          @blur="$v.password.$touch()"
-        ></v-text-field>
-        <v-btn class="mr-4" @click="login">登入</v-btn>
-      </form>
-    </div>
+    <form class="login-box" ref="form">
+      <div>系统登入</div>
+      <v-text-field
+        v-model="account"
+        label="账号"
+        required
+        :error-messages="accountErrors"
+        :error-count="2"
+        @input="$v.account.$touch()"
+        @blur="$v.account.$touch()"
+      ></v-text-field>
+      <v-text-field
+        v-model="password"
+        type="password"
+        label="密码"
+        required
+        :error-messages="passwordErrors"
+        @input="$v.password.$touch()"
+        @blur="$v.password.$touch()"
+      ></v-text-field>
+      <v-btn class="mr-4" @click="login">登入</v-btn>
+    </form>
   </div>
 </template>
 
@@ -38,8 +36,8 @@ export default {
   },
   validations: {
     account: {
-      required,
-      minLength: minLength(4)
+      required
+      // minLength: minLength(4)
     },
     password: {
       required
@@ -50,7 +48,7 @@ export default {
     accountErrors() {
       const errors = [];
       if (!this.$v.account.$dirty) return errors;
-      !this.$v.account.maxLength && errors.push('account must be at most 4 characters long');
+      // !this.$v.account.maxLength && errors.push('account must be at most 4 characters long');
       !this.$v.account.required && errors.push('account is required.');
       return errors;
     },
@@ -64,10 +62,11 @@ export default {
   methods: {
     login() {
       if (this.$v.$invalid) {
-
+        return;
       }
       if (this.account === 'admin' && this.password === '111111') {
         console.log('login');
+        this.$router.push('/management/home');
       }
     },
   },
